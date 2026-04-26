@@ -17,23 +17,17 @@
   }
 
   &__star {
+    background-size: 13px 13px;
+    background-image: url('../images/star.svg');
+    background-position: center;
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: url('../images/star.svg') no-repeat;
-    background-size: 13px 13px;
-    background-position: center;
     margin-right: 4px;
   }
 
   &__star:last-child {
     margin-right: 0;
-  }
-
-  &__star:nth-child(-n + 4) {
-    background: url('../images/star-active.svg') no-repeat;
-    background-position: center;
-    background-size: 13px 13px;
   }
 
   &__count {
@@ -46,5 +40,13 @@
     color: variables.$color-primary;
     padding-top: 2px;
     vertical-align: bottom;
+  }
+}
+
+@for $i from 1 through 5 {
+  .stars__stars--#{$i} .stars__star:nth-child(-n + #{$i}) {
+    background: url('../images/star-active.svg') no-repeat;
+    background-position: center;
+    background-size: 13px 13px;
   }
 }
